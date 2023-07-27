@@ -5,6 +5,9 @@ export const useFetchGifs = ( category ) => {
 
     const[ images, setImages ] = useState([]);
     const[ isLoading, setIsLoading ] = useState( true );
+    
+    //* Despues de ejecutar el getImages se actualiza los estados, y como estos se destructuran 
+    //* en otro archivo estos ya llegan actualizados, retornandolos.
 
     const getImages = async() =>{
         const newImages = await getGifs( category ); //* lista de objetos de la promesa resuelta

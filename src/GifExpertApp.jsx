@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { AddCategory,GifGrid } from "./components";
+import { AddCategory, GifGrid } from "./components";
 
 
 export const GifExpertApp = () => {
 
-    const[ categories, setCategories ] = useState([ 'Naruto' ]); //* undefined si no tiene valor incial.
+    const[ categories, setCategories ] = useState([]); //* undefined si no tiene valor incial.
 
     const onAddCategories = ( NewCategory ) =>{
 
@@ -21,7 +21,8 @@ export const GifExpertApp = () => {
 
             <AddCategory 
                 // setCategories={ setCategories } //* on es cuando emite
-                onNewCategory = { value => onAddCategories(value) }
+                onNewCategory = { value => onAddCategories(value) } 
+                
             />
 
             {/* <button onClick={onAddCategories} >Agregar</button> */}
@@ -39,6 +40,13 @@ export const GifExpertApp = () => {
      );
     }
 
+
+
+
+    //? Emitir evento al Padre
+
+    //* Emite un evento del hijo al padre en el hijo se manda el evento onNewCategory con su valor, y en el 
+    //* padre se recibe en la funcion y esta la renderiza en el componente
 
     //* onNewCategory Esta prop recibe el string del input como valor., y lo manda a la funcion del
     //* componente Padre que lo aniade a la lista.
